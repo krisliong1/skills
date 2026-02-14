@@ -1,3 +1,8 @@
+---
+name: product-listing
+description: Batch generate WooCommerce/Shopify product listings with bilingual titles (Malay+English), SEO optimization, and automatic categorization. Use when uploading multiple products, need dual-language support, or SEO keyword optimization.
+---
+
 # Product Listing Skill
 
 ## 用途
@@ -31,166 +36,74 @@
    - Shopify CSV 格式
    - 支持批量上传
 
-## 输入参数
+## 使用示例
 
-```json
-{
-  "platform": "woocommerce",
-  "products": [
-    {
-      "name": "Logitech G502 Gaming Mouse",
-      "category": "gaming",
-      "price": 259.00,
-      "supplier_url": "https://aliexpress.com/item/...",
-      "images": [
-        "https://example.com/image1.jpg",
-        "https://example.com/image2.jpg"
-      ]
-    }
-  ]
-}
+**输入：**
+```
+帮我批量上架 50 个游戏鼠标到 WooCommerce
+产品来源：AliExpress
+分类：Gaming
 ```
 
-## 输出示例
-
-### 生成的产品标题
-
-**英语**: Logitech G502 HERO Gaming Mouse - High Precision RGB Wired Mouse  
-**马来语**: Tetikus Gaming Logitech G502 HERO - Tetikus Berwayar RGB Ketepatan Tinggi
-
-### 生成的产品描述
-
-```
-🎮 Logitech G502 HERO - 专业电竞鼠标
-
-【产品特点】
-✅ HERO 25K 传感器 - 100-25,600 DPI
-✅ 11 个可编程按键
-✅ RGB LIGHTSYNC 灯光系统
-✅ 可调节重量系统 (3.6g x 5)
-
-【适用场景】
-- 电竞游戏 (FPS/MOBA)
-- 办公设计
-- 日常使用
-
-【包装清单】
-- G502 鼠标 x 1
-- 配重块 x 5
-- 用户手册
-
----
-
-🎮 Tetikus Gaming Profesional Logitech G502 HERO
-
-【Ciri-ciri Produk】
-✅ Sensor HERO 25K - 100-25,600 DPI
-✅ 11 Butang Boleh Diprogram
-✅ Sistem Lampu RGB LIGHTSYNC
-✅ Sistem Berat Boleh Laras (3.6g x 5)
-
-【Sesuai Untuk】
-- Gaming Esports (FPS/MOBA)
-- Kerja Pejabat & Design
-- Penggunaan Harian
-```
-
-### SEO 关键词
-
-```
-gaming mouse, tetikus gaming, logitech g502, rgb mouse, 
-wired gaming mouse, high dpi mouse, esports mouse,
-tetikus rgb, gaming gear malaysia
-```
+**输出：**
+- WooCommerce CSV 文件（可直接导入）
+- 每个产品包含：双语标题、优化描述、SEO 关键词、分类、价格
 
 ## 工作流程
 
-1. **数据提取**
-   - 从供应商链接抓取产品信息
-   - 提取图片 URL
-   - 获取基础规格
+### 步骤 1: 收集产品信息
+- 产品名称
+- 价格
+- 供应商链接
+- 产品图片
 
-2. **内容生成**
-   - AI 生成双语标题
-   - 创建产品描述
-   - 优化 SEO 关键词
+### 步骤 2: 生成双语内容
+**英语标题示例：**
+`Logitech G502 HERO Gaming Mouse - High Precision RGB Wired`
 
-3. **CSV 导出**
-   - 格式化为 WooCommerce/Shopify 格式
-   - 验证必填字段
-   - 输出可导入文件
+**马来语标题示例：**
+`Tetikus Gaming Logitech G502 HERO - Ketepatan Tinggi RGB`
 
-## 使用示例
+### 步骤 3: 优化产品描述
+包含：
+- 产品特点（卖点）
+- 技术规格
+- 适用场景
+- 包装清单
 
-### 在 Claude 中使用
+### 步骤 4: 导出 CSV
+格式化为 WooCommerce/Shopify 可导入格式
 
-```
-用户: "帮我批量上架 50 个游戏鼠标到 WooCommerce"
+## SEO 优化
 
-Claude 会：
-1. 加载 product-listing skill
-2. 询问产品来源（AliExpress/供应商）
-3. 提取产品信息
-4. 生成双语标题和描述
-5. 输出 WooCommerce CSV 文件
-6. 提供导入步骤说明
-```
+自动生成马来西亚本地化关键词：
+- gaming mouse → tetikus gaming
+- RGB mouse → tetikus RGB
+- high precision → ketepatan tinggi
 
-## 脚本说明
+## 配置
 
-### `scripts/woocommerce-generator.py`
-批量生成 WooCommerce 产品 CSV
-
-### `scripts/seo-optimizer.py`
-SEO 关键词优化器
-
-### `templates/product-template.csv`
-WooCommerce CSV 模板
-
-## 配置文件
-
-`templates/seo-keywords.json` - SEO 关键词库
-
-```json
-{
-  "gaming": [
-    "gaming mouse",
-    "tetikus gaming",
-    "rgb mouse",
-    "esports gear"
-  ],
-  "mac": [
-    "macbook accessories",
-    "aksesori mac",
-    "mac peripherals"
-  ]
-}
-```
+产品分类映射：
+- Gaming: 游戏外设、电竞装备
+- Mac: MacBook 配件、苹果生态
+- Smart Home: 智能家居、IoT 设备
 
 ## 最佳实践
 
-1. **批量处理** - 每批 50-100 个产品
-2. **图片优化** - 先使用 image-optimization skill
-3. **价格计算** - 结合 pricing-strategy skill
-4. **分类管理** - 预先创建好产品分类
+1. **批量大小**: 每批 50-100 个产品
+2. **图片准备**: 先使用 image-optimization skill
+3. **价格计算**: 结合 pricing-strategy skill
+4. **质量检查**: 导入前预览 CSV
 
-## 常见问题
+## 输出格式
 
-**Q: 支持哪些语言？**
-A: 目前支持马来语 + 英语双语
+**WooCommerce CSV 字段：**
+- SKU, Name, Name_MY, Description, Price, Category, Images, SEO_Keywords
 
-**Q: 如何导入到 WooCommerce？**
-A: WooCommerce → 产品 → 导入 → 上传 CSV
-
-**Q: 生成的标题太长怎么办？**
-A: 可以在配置中设置最大字符数限制
-
-## 技术要求
-
-- WooCommerce 3.0+
-- Shopify (任意版本)
-- Python 3.8+ (如需运行脚本)
+**Shopify CSV 字段：**
+- Handle, Title, Body (HTML), Vendor, Type, Tags, Price
 
 ---
 
-**© 2026 Oskris.com | 联系: oskrismy@gmail.com**
+**Made with ❤️ by Kris Liong for [Oskris](https://oskris.com)**  
+**联系: oskrismy@gmail.com**
