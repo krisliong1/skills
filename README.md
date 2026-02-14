@@ -1,6 +1,6 @@
 # Skills by Kris Liong
 
-![Skills Badge](https://img.shields.io/badge/Skills-19-blue)
+![Skills Badge](https://img.shields.io/badge/Skills-36-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 **专业的 AI Agent Skills 库 - 专注电商与 Web 开发**
@@ -26,6 +26,38 @@ npx skills add krisliong1/skills/web-projects
 ```
 
 ## 📦 Skills 目录
+
+### 🤖 Claude AI Skills (NEW!)
+**完整的 Anthropic Claude 官方技能库 - 17个专业模块**
+
+- **📁 claude-skills/** - [查看完整文档](./claude-skills/README.md) | [快速开始](./claude-skills/QUICK_START.md)
+  - **Public Skills (6个)** - 核心生产级工具
+    - `docx` - Word文档处理
+    - `pdf` - PDF全能操作
+    - `pptx` - PowerPoint演示
+    - `xlsx` - Excel表格大师
+    - `frontend-design` ⭐ - 前端界面设计专家
+    - `product-self-knowledge` - Anthropic产品知识
+  
+  - **Example Skills (11个)** - 高级应用场景
+    - `web-artifacts-builder` ⭐ - 复杂Web组件构建
+    - `doc-coauthoring` - 文档协作工作流
+    - `skill-creator` - 技能创建器
+    - `theme-factory` - 主题工厂
+    - `mcp-builder` - MCP服务器开发
+    - `canvas-design` - 画布艺术设计
+    - `algorithmic-art` - 算法生成艺术
+    - `internal-comms` - 企业内部沟通
+    - `brand-guidelines` - Anthropic品牌指南
+    - `slack-gif-creator` - Slack GIF制作
+    - `benepass-reimbursement` - 报销流程示例
+
+**🎯 推荐组合 (网页开发业务)**:
+```
+frontend-design + web-artifacts-builder + doc-coauthoring + theme-factory
+```
+
+---
 
 ### 🛒 电商运营 (E-commerce)
 - **product-listing** - WooCommerce/Shopify 批量产品上架
